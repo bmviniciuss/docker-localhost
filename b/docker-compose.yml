@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  b:
+    container_name: service-b
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5001:3000"
+    environment:
+      - PORT=3000
+      - SERVICE_A_HOST=http://host.docker.internal:5000
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"

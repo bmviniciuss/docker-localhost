@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  a:
+    container_name: service-a
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:3000"
+    environment:
+      - PORT=3000
